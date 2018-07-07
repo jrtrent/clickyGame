@@ -17,6 +17,8 @@ function randomPictures(a) {
     return a;
 };
 
+
+
 class App extends Component {
     state = {
         pictures,
@@ -25,22 +27,23 @@ class App extends Component {
         correctIncorrect:"",
         clicked: [],
     };
-
+   
     
        handleClick = (id) => {
-            
-          
+        
+           
+        //  this.setState({ clicked:[...this.state.clicked, id]});
          
         if (this.state.clicked.indexOf(id) === -1) {
             this.handleIncrement();
            
             //concat 
             this.setState({ clicked: this.state.clicked.concat(id) });
-            console.log({clicked: this.state.clicked});
+            console.log("added to click");
         } else {
             this.handleReset();
         }
-        console.log("handleclick");
+        console.log({clicked: this.state.clicked});
     };
 
     handleIncrement = () => {
@@ -105,6 +108,7 @@ class App extends Component {
                         correctIncorrect={this.correctIncorrect}
                         id={picture.id}                        
                         image={picture.image_url}
+                        
                         
                                                
                     />

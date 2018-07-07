@@ -26,15 +26,21 @@ class App extends Component {
         clicked: [],
     };
 
-    handleClick = idx => {
-        if (this.state.clicked.indexOf(idx) === -1) {
+    
+       handleClick = (id) => {
+            
+          
+         
+        if (this.state.clicked.indexOf(id) === -1) {
             this.handleIncrement();
+           
             //concat 
-            this.setState({ clicked: this.state.clicked.concat(idx) });
+            this.setState({ clicked: this.state.clicked.concat(id) });
             console.log({clicked: this.state.clicked});
         } else {
             this.handleReset();
         }
+        console.log("handleclick");
     };
 
     handleIncrement = () => {
@@ -70,8 +76,7 @@ class App extends Component {
         this.setState({ pictures: shufflePictures });
     };
           
-
-    
+   
    
     
     render() {
@@ -87,9 +92,9 @@ class App extends Component {
                 title="BIRDWATCH"
                 subtitle="Click on an image to score points, but don't click on the same image twice!">
                 </Title>
-                
+                <Grid>
                 {this.state.pictures.map(picture => (
-                    <Grid>
+                    
                     
                     <PictureCard
                         key={picture.id}
@@ -97,13 +102,16 @@ class App extends Component {
                         handleIncrement={this.handleIncrement}
                         handleReset={this.handleReset}
                         handleShuffle={this.handleShuffle}
+                        correctIncorrect={this.correctIncorrect}
                         id={picture.id}                        
                         image={picture.image_url}
+                        
                                                
                     />
                
-                </Grid>
+                
                 ))}
+                </Grid>
            
             </Wrapper>
         );

@@ -1,15 +1,17 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
+.container {
+    display: flex;
+    min-height: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: lightgoldenrodyellow;
-    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: auto;
+    align-content: space-evenly;
+    min-height: 30px;
 
 }
 
-.grid-container > div {
-    background-color: lightgreen;
-    text-align: center;
-    padding: 20px 0;
-}
+
+
 
